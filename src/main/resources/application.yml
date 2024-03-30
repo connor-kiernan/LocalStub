@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: LocalStub
+
+server:
+  port: 8001

@@ -1,0 +1,488 @@
+{
+  "Users": [
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Ophelia"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Bright"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "49"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "RB"
+        }
+      ],
+      "Username": "ophelia.bright"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Pearson"
+        },
+        {
+          "Name": "family_name",
+          "Value": "David"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "96"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "CB"
+        }
+      ],
+      "Username": "pearson.david"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Bertha"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Maxwell"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "58"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "RM"
+        }
+      ],
+      "Username": "bertha.maxwell"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Marci"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Barnett"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "94"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "DM"
+        }
+      ],
+      "Username": "marci.barnett"
+    },    
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Whitney"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Hunt"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "27"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "DM"
+        }
+      ],
+      "Username": "whitney.hunt"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Morgan"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Bird"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "26"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "RWB"
+        }
+      ],
+      "Username": "morgan.bird"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Bartlett"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Miles"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "60"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "RB"
+        }
+      ],
+      "Username": "bartlett.miles"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Margie"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Chambers"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "76"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "LW"
+        }
+      ],
+      "Username": "margie.chambers"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Lindsay"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Leach"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "22"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "RWB"
+        }
+      ],
+      "Username": "lindsay.leach"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Addie"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Koch"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "28"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "RB"
+        }
+      ],
+      "Username": "addie.koch"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Mcbride"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Kirkland"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "50"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "RB"
+        }
+      ],
+      "Username": "mcbride.kirkland"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Sanchez"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Sims"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "46"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "CB"
+        }
+      ],
+      "Username": "sanchez.sims"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Rodriguez"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Morris"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "57"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "LWB"
+        }
+      ],
+      "Username": "rodriguez.morris"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Neva"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Wolf"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "65"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "CM"
+        }
+      ],
+      "Username": "neva.wolf"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Petersen"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Burt"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "65"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "LB"
+        }
+      ],
+      "Username": "petersen.burt"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Heath"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Wagner"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "80"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "LM"
+        }
+      ],
+      "Username": "heath.wagner"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Benita"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Justice"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "15"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "SS"
+        }
+      ],
+      "Username": "benita.justice"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Rachael"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Hammond"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "26"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "SS"
+        }
+      ],
+      "Username": "rachael.hammond"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Elsie"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Case"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "92"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "LM"
+        }
+      ],
+      "Username": "elsie.case"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Gwendolyn"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Dennis"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "67"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "LB"
+        }
+      ],
+      "Username": "gwendolyn.dennis"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Huff"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Jenkins"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "92"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "RB"
+        }
+      ],
+      "Username": "huff.jenkins"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Emma"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Wheeler"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "3"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "LWB"
+        }
+      ],
+      "Username": "emma.wheeler"
+    }
+  ]
+}
