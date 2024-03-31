@@ -3,6 +3,7 @@ package uk.co.withingtonhopecf.localstub.controller;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,5 +15,10 @@ public class AwsCognitoController {
 	@PostMapping("/")
 	public String listUsers() throws IOException {
 		return new ClassPathResource("output/userList.json").getContentAsString(StandardCharsets.UTF_8);
+	}
+
+	@GetMapping("/auth")
+	public String token() {
+		return "";
 	}
 }
