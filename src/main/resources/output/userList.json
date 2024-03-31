@@ -5,28 +5,6 @@
       "Attributes": [
         {
           "Name": "given_name",
-          "Value": "Ophelia"
-        },
-        {
-          "Name": "family_name",
-          "Value": "Bright"
-        },
-        {
-          "Name": "custom:kit_number",
-          "Value": "49"
-        },
-        {
-          "Name": "custom:position",
-          "Value": "RB"
-        }
-      ],
-      "Username": "ophelia.bright"
-    },
-    {
-      "Enabled": true,
-      "Attributes": [
-        {
-          "Name": "given_name",
           "Value": "Pearson"
         },
         {
@@ -115,50 +93,6 @@
       "Attributes": [
         {
           "Name": "given_name",
-          "Value": "Morgan"
-        },
-        {
-          "Name": "family_name",
-          "Value": "Bird"
-        },
-        {
-          "Name": "custom:kit_number",
-          "Value": "26"
-        },
-        {
-          "Name": "custom:position",
-          "Value": "RWB"
-        }
-      ],
-      "Username": "morgan.bird"
-    },
-    {
-      "Enabled": true,
-      "Attributes": [
-        {
-          "Name": "given_name",
-          "Value": "Bartlett"
-        },
-        {
-          "Name": "family_name",
-          "Value": "Miles"
-        },
-        {
-          "Name": "custom:kit_number",
-          "Value": "60"
-        },
-        {
-          "Name": "custom:position",
-          "Value": "RB"
-        }
-      ],
-      "Username": "bartlett.miles"
-    },
-    {
-      "Enabled": true,
-      "Attributes": [
-        {
-          "Name": "given_name",
           "Value": "Margie"
         },
         {
@@ -181,44 +115,22 @@
       "Attributes": [
         {
           "Name": "given_name",
-          "Value": "Lindsay"
+          "Value": "Rico"
         },
         {
           "Name": "family_name",
-          "Value": "Leach"
+          "Value": "Johnson"
         },
         {
           "Name": "custom:kit_number",
-          "Value": "22"
+          "Value": "50"
         },
         {
           "Name": "custom:position",
-          "Value": "RWB"
+          "Value": "RW"
         }
       ],
-      "Username": "lindsay.leach"
-    },
-    {
-      "Enabled": true,
-      "Attributes": [
-        {
-          "Name": "given_name",
-          "Value": "Addie"
-        },
-        {
-          "Name": "family_name",
-          "Value": "Koch"
-        },
-        {
-          "Name": "custom:kit_number",
-          "Value": "28"
-        },
-        {
-          "Name": "custom:position",
-          "Value": "RB"
-        }
-      ],
-      "Username": "addie.koch"
+      "Username": "margie.chambers"
     },
     {
       "Enabled": true,
@@ -263,28 +175,6 @@
         }
       ],
       "Username": "sanchez.sims"
-    },
-    {
-      "Enabled": true,
-      "Attributes": [
-        {
-          "Name": "given_name",
-          "Value": "Rodriguez"
-        },
-        {
-          "Name": "family_name",
-          "Value": "Morris"
-        },
-        {
-          "Name": "custom:kit_number",
-          "Value": "57"
-        },
-        {
-          "Name": "custom:position",
-          "Value": "LWB"
-        }
-      ],
-      "Username": "rodriguez.morris"
     },
     {
       "Enabled": true,
@@ -369,7 +259,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "SS"
+          "Value": "CF"
         }
       ],
       "Username": "benita.justice"
@@ -391,7 +281,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "SS"
+          "Value": "CF"
         }
       ],
       "Username": "rachael.hammond"
@@ -439,6 +329,27 @@
         }
       ],
       "Username": "gwendolyn.dennis"
+    },{
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "James"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Smith"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "1"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "GK"
+        }
+      ],
+      "Username": "james.smith"
     },
     {
       "Enabled": true,
@@ -461,28 +372,6 @@
         }
       ],
       "Username": "huff.jenkins"
-    },
-    {
-      "Enabled": true,
-      "Attributes": [
-        {
-          "Name": "given_name",
-          "Value": "Emma"
-        },
-        {
-          "Name": "family_name",
-          "Value": "Wheeler"
-        },
-        {
-          "Name": "custom:kit_number",
-          "Value": "3"
-        },
-        {
-          "Name": "custom:position",
-          "Value": "LWB"
-        }
-      ],
-      "Username": "emma.wheeler"
     }
   ]
 }
