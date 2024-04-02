@@ -5,6 +5,24 @@
       "Attributes": [
         {
           "Name": "given_name",
+          "Value": "Sean"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Dyche"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "MANAGER"
+        }
+      ],
+      "Username": "sean.dyche"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
           "Value": "Pearson"
         },
         {
