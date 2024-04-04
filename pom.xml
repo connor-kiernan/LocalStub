@@ -11,7 +11,7 @@
   </parent>
   <groupId>uk.co.withingtonhopecf</groupId>
   <artifactId>LocalStub</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0-SNAPSHOT</version>
   <name>LocalStub</name>
   <description>LocalStub</description>
   <properties>
