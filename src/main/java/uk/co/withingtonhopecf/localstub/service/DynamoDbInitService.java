@@ -87,7 +87,7 @@ public class DynamoDbInitService {
 			baseZonedDateTime.plusWeeks(seed);
 
 		return Match.builder()
-			.id(String.valueOf(seed))
+			.id(String.valueOf(played ? seed : seed * 5))
 			.address(Map.of(
 				"line1", seed + " Fake Street",
 				"line2", "Sport Field",
