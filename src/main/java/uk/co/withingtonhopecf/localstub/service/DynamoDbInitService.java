@@ -92,7 +92,7 @@ public class DynamoDbInitService {
 			baseZonedDateTime.minusWeeks(seed) :
 			baseZonedDateTime.plusWeeks(seed);
 
-		final boolean isHomeGame = (seed % 2) == 0;
+		final boolean isHomeGame = (seed % 2) != 0;
 
 		Map<String, String> address = isHomeGame ?
 			HOME_ADDRESS :
@@ -103,7 +103,7 @@ public class DynamoDbInitService {
 			);
 
 		return Match.builder()
-			.id(String.valueOf(played ? seed : seed * 5))
+			.id(String.valueOf(!played ? seed : seed + 5))
 			.address(address)
 			.isHomeKit(isHomeGame)
 			.isHomeGame(isHomeGame)
