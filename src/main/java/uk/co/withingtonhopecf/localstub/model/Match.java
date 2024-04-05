@@ -16,7 +16,7 @@ import uk.co.withingtonhopecf.localstub.model.enums.PitchType;
 
 @Value
 @Builder
-@JsonInclude(Include.NON_NULL)
+@JsonInclude(Include.NON_DEFAULT)
 @DynamoDbImmutable(builder = Match.MatchBuilder.class)
 public class Match {
 
@@ -34,5 +34,11 @@ public class Match {
 	Boolean played;
 	Boolean isHomeGame;
 	Boolean isHomeKit;
+
+	@Builder.Default
+	int homeGoals = -1;
+
+	@Builder.Default
+	int awayGoals = -1;
 
 }

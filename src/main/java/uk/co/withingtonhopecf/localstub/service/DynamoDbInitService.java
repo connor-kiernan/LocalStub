@@ -102,6 +102,12 @@ public class DynamoDbInitService {
 				"postcode", "A%d%d %dBC".formatted((seed * 7) % 10, seed, seed)
 			);
 
+		final int homeGoalsIfPlayed = isHomeGame ? 2 : 0;
+		final int awayGoalsIfPlayer = isHomeGame ? 0 : 2;
+
+		int homeGoals = played ? homeGoalsIfPlayed : -1;
+		int awayGoals = played ? awayGoalsIfPlayer : -1;
+
 		return Match.builder()
 			.id(String.valueOf(!played ? seed : seed + 5))
 			.address(address)
@@ -110,6 +116,8 @@ public class DynamoDbInitService {
 			.played(played)
 			.kickOffDateTime(kickOffTime)
 			.opponent(OPPONENTS.get(seed % OPPONENTS.size()))
+			.homeGoals(homeGoals)
+			.awayGoals(awayGoals)
 			.build();
 	}
 
