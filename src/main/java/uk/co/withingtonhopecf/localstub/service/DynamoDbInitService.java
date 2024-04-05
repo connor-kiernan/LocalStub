@@ -118,6 +118,7 @@ public class DynamoDbInitService {
 			.opponent(OPPONENTS.get(seed % OPPONENTS.size()))
 			.homeGoals(homeGoals)
 			.awayGoals(awayGoals)
+			.withyGoalScorers(played ? Map.of("Kiernan", 2) : null)
 			.build();
 	}
 

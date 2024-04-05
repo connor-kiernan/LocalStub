@@ -41,4 +41,6 @@ public class Match {
 	@Builder.Default
 	int awayGoals = -1;
 
+	Map<String, Integer> withyGoalScorers;
+
 }
