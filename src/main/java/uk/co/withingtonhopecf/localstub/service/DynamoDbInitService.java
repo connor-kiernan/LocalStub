@@ -80,6 +80,7 @@ public class DynamoDbInitService {
 		final ZonedDateTime baseZonedDateTime = ZonedDateTime.now()
 			.withHour(10)
 			.withMinute(15)
+			.withSecond(0)
 			.with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
 		ZonedDateTime kickOffTime = played ?
 			baseZonedDateTime.minusWeeks(seed) :
