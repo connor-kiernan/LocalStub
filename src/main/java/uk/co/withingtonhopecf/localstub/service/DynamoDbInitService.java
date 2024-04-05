@@ -27,7 +27,7 @@ public class DynamoDbInitService {
 	private final DynamoDbEnhancedClient dynamoDbEnhancedClient;
 	private final DynamoDbClient dynamoDbClient;
 
-	private static final List<String> opponents = List.of(
+	private static final List<String> OPPONENTS = List.of(
 		"Thames Valley Rovers FC",
 		"Highland United FC",
 		"Albion Rangers FC",
@@ -38,6 +38,12 @@ public class DynamoDbInitService {
 		"Bristol City Blues",
 		"Highbury Borough FC",
 		"Celtic Valley FC"
+	);
+
+	private static final Map<String, String> HOME_ADDRESS = Map.of(
+		"line1", "Hough End Playing Fields",
+		"line2", " 480 Princess Rd",
+		"postcode", "M20 1HP"
 	);
 
 	@PostConstruct
@@ -86,18 +92,24 @@ public class DynamoDbInitService {
 			baseZonedDateTime.minusWeeks(seed) :
 			baseZonedDateTime.plusWeeks(seed);
 
-		return Match.builder()
-			.id(String.valueOf(played ? seed : seed * 5))
-			.address(Map.of(
+		final boolean isHomeGame = (seed % 2) != 0;
+
+		Map<String, String> address = isHomeGame ?
+			HOME_ADDRESS :
+			Map.of(
 				"line1", seed + " Fake Street",
 				"line2", "Sport Field",
 				"postcode", "A%d%d %dBC".formatted((seed * 7) % 10, seed, seed)
-			))
-			.isHomeKit((seed % 2) == 0)
-			.isHomeGame((seed % 2) == 0)
+			);
+
+		return Match.builder()
+			.id(String.valueOf(played ? seed : seed * 5))
+			.address(address)
+			.isHomeKit(isHomeGame)
+			.isHomeGame(isHomeGame)
 			.played(played)
 			.kickOffDateTime(kickOffTime)
-			.opponent(opponents.get(seed % opponents.size()))
+			.opponent(OPPONENTS.get(seed % OPPONENTS.size()))
 			.build();
 	}
 
