@@ -16,6 +16,7 @@ import software.amazon.awssdk.enhanced.dynamodb.DynamoDbTable;
 import software.amazon.awssdk.enhanced.dynamodb.TableSchema;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.DescribeTableResponse;
+import software.amazon.awssdk.services.dynamodb.model.ResourceInUseException;
 import software.amazon.awssdk.services.dynamodb.waiters.DynamoDbWaiter;
 import uk.co.withingtonhopecf.localstub.model.Match;
 
@@ -52,8 +53,15 @@ public class DynamoDbInitService {
 	}
 
 	public void initMatches() {
+		log.info("Initialising matches table");
+
 		DynamoDbTable<Match> table = dynamoDbEnhancedClient.table("matches", TableSchema.fromImmutableClass(Match.class));
-		table.createTable();
+
+		try {
+			table.createTable();
+		} catch (ResourceInUseException ex) {
+			log.info("Table already exists, resetting data anyway...");
+		}
 
 		try (DynamoDbWaiter waiter = DynamoDbWaiter.builder().client(dynamoDbClient).build()) {
 			ResponseOrException<DescribeTableResponse> response = waiter
