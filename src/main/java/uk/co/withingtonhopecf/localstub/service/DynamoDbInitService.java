@@ -1,5 +1,8 @@
 package uk.co.withingtonhopecf.localstub.service;
 
+import static uk.co.withingtonhopecf.localstub.model.enums.PitchType.ASTRO;
+import static uk.co.withingtonhopecf.localstub.model.enums.PitchType.GRASS;
+
 import jakarta.annotation.PostConstruct;
 import java.time.DayOfWeek;
 import java.time.ZonedDateTime;
@@ -7,6 +10,8 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -18,7 +23,9 @@ import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.DescribeTableResponse;
 import software.amazon.awssdk.services.dynamodb.model.ResourceInUseException;
 import software.amazon.awssdk.services.dynamodb.waiters.DynamoDbWaiter;
+import uk.co.withingtonhopecf.localstub.model.Availability;
 import uk.co.withingtonhopecf.localstub.model.Match;
+import uk.co.withingtonhopecf.localstub.model.enums.AvailabilityStatus;
 
 @Slf4j
 @Service
@@ -46,6 +53,29 @@ public class DynamoDbInitService {
 		"line2", " 480 Princess Rd",
 		"postcode", "M20 1HP"
 	);
+
+	private static final List<String> USERNAMES = List.of(
+		"sean.dyche",
+		"pearson.david",
+		"bertha.maxwell",
+		"marci.barnett",
+		"whitney.hunt",
+		"margie.chambers",
+		"rico.johnson",
+		"mcbride.kirkland",
+		"sanchez.sims",
+		"neva.wolf",
+		"petersen.burt",
+		"heath.wagner",
+		"benita.justice",
+		"rachael.hammond",
+		"elsie.case",
+		"gwendolyn.dennis",
+		"james.smith",
+		"huff.jenkins",
+		"connor.kiernan"
+	);
+
 
 	@PostConstruct
 	public void postConstruct() {
@@ -90,7 +120,7 @@ public class DynamoDbInitService {
 		return matches;
 	}
 
-	private Match createMatch(int seed, boolean played) {
+	private static Match createMatch(int seed, boolean played) {
 		final ZonedDateTime baseZonedDateTime = ZonedDateTime.now()
 			.withHour(10)
 			.withMinute(15)
@@ -127,6 +157,33 @@ public class DynamoDbInitService {
 			.homeGoals(homeGoals)
 			.awayGoals(awayGoals)
 			.withyGoalScorers(played ? Map.of("Kiernan", 2) : null)
+			.pitchType(isHomeGame ? GRASS : ASTRO)
+			.playerAvailability(createPlayerAvailability())
+			.build();
+	}
+
+	private static Map<String, Availability> createPlayerAvailability() {
+		return USERNAMES.stream()
+		.collect(Collectors.toMap(Function.identity(), DynamoDbInitService::createAvailability));
+	}
+
+	private static Availability createAvailability(String username) {
+		int enumIndex = username.length() % 4;
+		int reasonIndex = (username.length() * 7) % 4;
+
+		AvailabilityStatus status = AvailabilityStatus.values()[enumIndex];
+
+		List<String> goodReasons = List.of("", "", "First 45", "ankle better");
+		List<String> badReasons = List.of("", "", "On holiday", "Injured");
+		String comment = switch (status) {
+			case AVAILABLE -> goodReasons.get(reasonIndex).isEmpty() ? null : goodReasons.get(reasonIndex);
+			case UNAVAILABLE, IF_DESPERATE -> badReasons.get(reasonIndex).isEmpty() ? null : badReasons.get(reasonIndex);
+			default -> null;
+		};
+
+		return Availability.builder()
+			.status(status)
+			.comment(comment)
 			.build();
 	}
 

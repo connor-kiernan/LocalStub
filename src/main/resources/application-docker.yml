@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: LocalStub
+
+server:
+  port: 8001
+
+local-stub:
+  dynamo-db-url: http://host.docker.internal:8000
+  issuer-url: http://host.docker.internal:8001/cognito/auth

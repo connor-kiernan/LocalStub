@@ -43,4 +43,6 @@ public class Match {
 
 	Map<String, Integer> withyGoalScorers;
 
+	Map<String, Availability> playerAvailability;
+
 }
