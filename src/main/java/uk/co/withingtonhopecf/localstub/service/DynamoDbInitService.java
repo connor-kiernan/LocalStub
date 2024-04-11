@@ -1,10 +1,15 @@
 package uk.co.withingtonhopecf.localstub.service;
 
+import static uk.co.withingtonhopecf.localstub.model.enums.AvailabilityStatus.AVAILABLE;
+import static uk.co.withingtonhopecf.localstub.model.enums.AvailabilityStatus.FAN_CLUB;
+import static uk.co.withingtonhopecf.localstub.model.enums.AvailabilityStatus.IF_DESPERATE;
+import static uk.co.withingtonhopecf.localstub.model.enums.AvailabilityStatus.UNAVAILABLE;
 import static uk.co.withingtonhopecf.localstub.model.enums.PitchType.ASTRO;
 import static uk.co.withingtonhopecf.localstub.model.enums.PitchType.GRASS;
 
 import jakarta.annotation.PostConstruct;
 import java.time.DayOfWeek;
+import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
@@ -12,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -54,29 +60,6 @@ public class DynamoDbInitService {
 		"postcode", "M20 1HP"
 	);
 
-	private static final List<String> USERNAMES = List.of(
-		"sean.dyche",
-		"pearson.david",
-		"bertha.maxwell",
-		"marci.barnett",
-		"whitney.hunt",
-		"margie.chambers",
-		"rico.johnson",
-		"mcbride.kirkland",
-		"sanchez.sims",
-		"neva.wolf",
-		"petersen.burt",
-		"heath.wagner",
-		"benita.justice",
-		"rachael.hammond",
-		"elsie.case",
-		"gwendolyn.dennis",
-		"james.smith",
-		"huff.jenkins",
-		"connor.kiernan"
-	);
-
-
 	@PostConstruct
 	public void postConstruct() {
 		initMatches();
@@ -107,7 +90,7 @@ public class DynamoDbInitService {
 		}
 	}
 
-	private List<Match> createMatches() {
+	private static List<Match> createMatches() {
 		List<Match> matches = new ArrayList<>();
 		for (int i = 0; i < 2; i++) {
 			for (int j = 1; j <= 5; j++) {
@@ -158,23 +141,24 @@ public class DynamoDbInitService {
 			.awayGoals(awayGoals)
 			.withyGoalScorers(played ? Map.of("Kiernan", 2) : null)
 			.pitchType(isHomeGame ? GRASS : ASTRO)
-			.playerAvailability(createPlayerAvailability())
+			.playerAvailability(createPlayerAvailability(seed))
 			.build();
 	}
 
-	private static Map<String, Availability> createPlayerAvailability() {
-		return USERNAMES.stream()
-		.collect(Collectors.toMap(Function.identity(), DynamoDbInitService::createAvailability));
+	private static Map<String, Availability> createPlayerAvailability(int seed) {
+		return IntStream.range(1, 20)
+			.mapToObj(String::valueOf)
+		.collect(Collectors.toMap(Function.identity(), sub -> createAvailability(sub, seed)));
 	}
 
-	private static Availability createAvailability(String username) {
-		int enumIndex = username.length() % 4;
-		int reasonIndex = (username.length() * 7) % 4;
+	private static Availability createAvailability(String sub, int seed) {
+		int enumIndex = (Integer.parseInt(sub) + seed) % 5;
+		int reasonIndex = (int) (Instant.now().toEpochMilli() % 4);
 
-		AvailabilityStatus status = AvailabilityStatus.values()[enumIndex];
+		AvailabilityStatus status = List.of(AVAILABLE, AVAILABLE, UNAVAILABLE, IF_DESPERATE, FAN_CLUB).get(enumIndex);
 
-		List<String> goodReasons = List.of("", "", "First 45", "ankle better");
-		List<String> badReasons = List.of("", "", "On holiday", "Injured");
+		List<String> goodReasons = List.of("", "", "", "First 45", "ankle better");
+		List<String> badReasons = List.of("", "", "Injured", "On holiday");
 		String comment = switch (status) {
 			case AVAILABLE -> goodReasons.get(reasonIndex).isEmpty() ? null : goodReasons.get(reasonIndex);
 			case UNAVAILABLE, IF_DESPERATE -> badReasons.get(reasonIndex).isEmpty() ? null : badReasons.get(reasonIndex);

@@ -14,6 +14,10 @@
         {
           "Name": "custom:position",
           "Value": "MANAGER"
+        },
+        {
+          "Name": "sub",
+          "Value": "1"
         }
       ],
       "Username": "sean.dyche"
@@ -36,6 +40,10 @@
         {
           "Name": "custom:position",
           "Value": "CB"
+        },
+        {
+          "Name": "sub",
+          "Value": "2"
         }
       ],
       "Username": "pearson.david"
@@ -58,6 +66,10 @@
         {
           "Name": "custom:position",
           "Value": "RM"
+        },
+        {
+          "Name": "sub",
+          "Value": "3"
         }
       ],
       "Username": "bertha.maxwell"
@@ -80,10 +92,14 @@
         {
           "Name": "custom:position",
           "Value": "DM"
+        },
+        {
+          "Name": "sub",
+          "Value": "4"
         }
       ],
       "Username": "marci.barnett"
-    },    
+    },
     {
       "Enabled": true,
       "Attributes": [
@@ -102,6 +118,10 @@
         {
           "Name": "custom:position",
           "Value": "DM"
+        },
+        {
+          "Name": "sub",
+          "Value": "5"
         }
       ],
       "Username": "whitney.hunt"
@@ -124,6 +144,10 @@
         {
           "Name": "custom:position",
           "Value": "LW"
+        },
+        {
+          "Name": "sub",
+          "Value": "6"
         }
       ],
       "Username": "margie.chambers"
@@ -146,6 +170,10 @@
         {
           "Name": "custom:position",
           "Value": "RW"
+        },
+        {
+          "Name": "sub",
+          "Value": "7"
         }
       ],
       "Username": "rico.johnson"
@@ -168,6 +196,10 @@
         {
           "Name": "custom:position",
           "Value": "RB"
+        },
+        {
+          "Name": "sub",
+          "Value": "8"
         }
       ],
       "Username": "mcbride.kirkland"
@@ -190,6 +222,10 @@
         {
           "Name": "custom:position",
           "Value": "CB"
+        },
+        {
+          "Name": "sub",
+          "Value": "9"
         }
       ],
       "Username": "sanchez.sims"
@@ -212,6 +248,10 @@
         {
           "Name": "custom:position",
           "Value": "CM"
+        },
+        {
+          "Name": "sub",
+          "Value": "10"
         }
       ],
       "Username": "neva.wolf"
@@ -234,6 +274,10 @@
         {
           "Name": "custom:position",
           "Value": "LB"
+        },
+        {
+          "Name": "sub",
+          "Value": "11"
         }
       ],
       "Username": "petersen.burt"
@@ -256,6 +300,10 @@
         {
           "Name": "custom:position",
           "Value": "LM"
+        },
+        {
+          "Name": "sub",
+          "Value": "12"
         }
       ],
       "Username": "heath.wagner"
@@ -278,6 +326,10 @@
         {
           "Name": "custom:position",
           "Value": "CF"
+        },
+        {
+          "Name": "sub",
+          "Value": "13"
         }
       ],
       "Username": "benita.justice"
@@ -300,6 +352,10 @@
         {
           "Name": "custom:position",
           "Value": "CF"
+        },
+        {
+          "Name": "sub",
+          "Value": "14"
         }
       ],
       "Username": "rachael.hammond"
@@ -322,6 +378,10 @@
         {
           "Name": "custom:position",
           "Value": "LM"
+        },
+        {
+          "Name": "sub",
+          "Value": "15"
         }
       ],
       "Username": "elsie.case"
@@ -344,10 +404,15 @@
         {
           "Name": "custom:position",
           "Value": "LB"
+        },
+        {
+          "Name": "sub",
+          "Value": "16"
         }
       ],
       "Username": "gwendolyn.dennis"
-    },{
+    },
+    {
       "Enabled": true,
       "Attributes": [
         {
@@ -365,6 +430,10 @@
         {
           "Name": "custom:position",
           "Value": "GK"
+        },
+        {
+          "Name": "sub",
+          "Value": "17"
         }
       ],
       "Username": "james.smith"
@@ -387,9 +456,39 @@
         {
           "Name": "custom:position",
           "Value": "RB"
+        },
+        {
+          "Name": "sub",
+          "Value": "18"
         }
       ],
       "Username": "huff.jenkins"
+    },
+    {
+      "Enabled": true,
+      "Attributes": [
+        {
+          "Name": "given_name",
+          "Value": "Connor"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Kiernan"
+        },
+        {
+          "Name": "custom:kit_number",
+          "Value": "37"
+        },
+        {
+          "Name": "custom:position",
+          "Value": "LB"
+        },
+        {
+          "Name": "sub",
+          "Value": "19"
+        }
+      ],
+      "Username": "connor.kiernan"
     }
   ]
 }
