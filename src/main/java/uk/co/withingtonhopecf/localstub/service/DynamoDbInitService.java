@@ -166,7 +166,7 @@ public class DynamoDbInitService {
 			return null;
 		}
 
-		int reasonIndex = (int) (Instant.now().toEpochMilli() % 4);
+		int reasonIndex = (int) ((Instant.now().toEpochMilli() + seed) % 4);
 
 		AvailabilityStatus status = List.of(AVAILABLE, AVAILABLE, UNAVAILABLE, IF_DESPERATE, FAN_CLUB).get(enumIndex);
 
@@ -186,10 +186,10 @@ public class DynamoDbInitService {
 
 	private static Match createTraining(int seed) {
 		final ZonedDateTime baseZonedDateTime = ZonedDateTime.now()
-			.withHour(10)
-			.withMinute(15)
+			.withHour(20)
+			.withMinute(0)
 			.withSecond(0)
-			.with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
+			.with(TemporalAdjusters.next(DayOfWeek.THURSDAY));
 		ZonedDateTime kickOffTime = baseZonedDateTime.plusWeeks(seed);
 
 		Map<String, String> address = Map.of(
