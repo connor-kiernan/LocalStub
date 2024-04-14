@@ -1,5 +1,6 @@
 package uk.co.withingtonhopecf.localstub.service;
 
+import static java.util.Map.entry;
 import static uk.co.withingtonhopecf.localstub.model.enums.AvailabilityStatus.AVAILABLE;
 import static uk.co.withingtonhopecf.localstub.model.enums.AvailabilityStatus.FAN_CLUB;
 import static uk.co.withingtonhopecf.localstub.model.enums.AvailabilityStatus.IF_DESPERATE;
@@ -15,7 +16,8 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
+import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import lombok.RequiredArgsConstructor;
@@ -97,6 +99,10 @@ public class DynamoDbInitService {
 				matches.add(
 					createMatch(j, i == 1)
 				);
+
+				if(i != 1) {
+					matches.add(createTraining(j));
+				}
 			}
 		}
 
@@ -148,11 +154,18 @@ public class DynamoDbInitService {
 	private static Map<String, Availability> createPlayerAvailability(int seed) {
 		return IntStream.range(1, 20)
 			.mapToObj(String::valueOf)
-		.collect(Collectors.toMap(Function.identity(), sub -> createAvailability(sub, seed)));
+			.map(sub -> createAvailability(sub, seed))
+			.filter(Objects::nonNull)
+		.collect(Collectors.toMap(Entry::getKey, Entry::getValue));
 	}
 
-	private static Availability createAvailability(String sub, int seed) {
-		int enumIndex = (Integer.parseInt(sub) + seed) % 5;
+	private static Entry<String, Availability> createAvailability(String sub, int seed) {
+		int enumIndex = (Integer.parseInt(sub) + seed) % 6;
+
+		if(enumIndex == 5) {
+			return null;
+		}
+
 		int reasonIndex = (int) (Instant.now().toEpochMilli() % 4);
 
 		AvailabilityStatus status = List.of(AVAILABLE, AVAILABLE, UNAVAILABLE, IF_DESPERATE, FAN_CLUB).get(enumIndex);
@@ -165,9 +178,33 @@ public class DynamoDbInitService {
 			default -> null;
 		};
 
-		return Availability.builder()
+		return entry(sub, Availability.builder()
 			.status(status)
 			.comment(comment)
+			.build());
+	}
+
+	private static Match createTraining(int seed) {
+		final ZonedDateTime baseZonedDateTime = ZonedDateTime.now()
+			.withHour(10)
+			.withMinute(15)
+			.withSecond(0)
+			.with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
+		ZonedDateTime kickOffTime = baseZonedDateTime.plusWeeks(seed);
+
+		Map<String, String> address = Map.of(
+				"line1", "The Armitage Center",
+				"line2", "Moseley Rd",
+				"postcode", "M14 6PA"
+			);
+
+		return Match.builder()
+			.id("TRAINING" + seed)
+			.address(address)
+			.kickOffDateTime(kickOffTime)
+			.opponent("Training")
+			.pitchType(ASTRO)
+			.playerAvailability(createPlayerAvailability(seed))
 			.build();
 	}
 

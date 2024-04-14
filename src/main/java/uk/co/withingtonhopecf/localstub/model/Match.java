@@ -34,15 +34,13 @@ public class Match {
 	Boolean played;
 	Boolean isHomeGame;
 	Boolean isHomeKit;
-
-	@Builder.Default
-	int homeGoals = -1;
-
-	@Builder.Default
-	int awayGoals = -1;
+	Integer homeGoals;
+	Integer awayGoals;
 
 	Map<String, Integer> withyGoalScorers;
 
 	Map<String, Availability> playerAvailability;
+
+	String eventType;
 
 }
