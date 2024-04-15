@@ -148,6 +148,7 @@ public class DynamoDbInitService {
 			.withyGoalScorers(played ? Map.of("Kiernan", 2) : null)
 			.pitchType(isHomeGame ? GRASS : ASTRO)
 			.playerAvailability(createPlayerAvailability(seed))
+			.eventType("GAME")
 			.build();
 	}
 
@@ -166,7 +167,7 @@ public class DynamoDbInitService {
 			return null;
 		}
 
-		int reasonIndex = (int) ((Instant.now().toEpochMilli() + seed) % 4);
+		int reasonIndex = (int) ((Instant.now().toEpochMilli() * seed) % 4);
 
 		AvailabilityStatus status = List.of(AVAILABLE, AVAILABLE, UNAVAILABLE, IF_DESPERATE, FAN_CLUB).get(enumIndex);
 
