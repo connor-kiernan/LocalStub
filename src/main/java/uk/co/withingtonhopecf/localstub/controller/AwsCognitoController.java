@@ -50,7 +50,7 @@ public class AwsCognitoController {
 		TokenRequest tokenRequest = objectMapper.convertValue(tokenRequestMap.toSingleValueMap(), TokenRequest.class);
 
 		String token = Jwts.builder().setIssuer(config.issuerUrl())
-			.setClaims(Map.of("cognito:groups", List.of("admin"), "username", "connor.kiernan", "sub", "19"))
+			.setClaims(Map.of("cognito:groups", List.of("Admin"), "username", "connor.kiernan", "sub", "19"))
 			.setIssuedAt(new Date())
 			.setExpiration(new Date(Instant.now().plus(1, ChronoUnit.DAYS).toEpochMilli())).compact();
 
