@@ -206,6 +206,7 @@ public class DynamoDbInitService {
 			.opponent("Training")
 			.pitchType(ASTRO)
 			.playerAvailability(createPlayerAvailability(seed))
+			.eventType("TRAINING")
 			.build();
 	}
 
