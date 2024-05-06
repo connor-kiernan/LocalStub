@@ -106,6 +106,8 @@ public class DynamoDbInitService {
 			}
 		}
 
+		matches.add(createIncompleteMatch());
+
 		return matches;
 	}
 
@@ -207,6 +209,28 @@ public class DynamoDbInitService {
 			.pitchType(ASTRO)
 			.playerAvailability(createPlayerAvailability(seed))
 			.eventType("TRAINING")
+			.build();
+	}
+
+	private static Match createIncompleteMatch() {
+		final ZonedDateTime kickOffTime = ZonedDateTime.now()
+			.withHour(10)
+			.withMinute(15)
+			.withSecond(0)
+			.with(TemporalAdjusters.next(DayOfWeek.SATURDAY))
+			.minusWeeks(10);
+
+		return Match.builder()
+			.id("100")
+			.address(HOME_ADDRESS)
+			.isHomeKit(true)
+			.isHomeGame(true)
+			.played(false)
+			.kickOffDateTime(kickOffTime)
+			.opponent(OPPONENTS.get(5))
+			.pitchType(GRASS)
+			.playerAvailability(createPlayerAvailability(2))
+			.eventType("GAME")
 			.build();
 	}
 
