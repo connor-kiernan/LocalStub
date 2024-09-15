@@ -39,7 +39,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "CB"
+          "Value": "DEF"
         },
         {
           "Name": "sub",
@@ -65,7 +65,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "RM"
+          "Value": "MID"
         },
         {
           "Name": "sub",
@@ -91,7 +91,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "DM"
+          "Value": "MID"
         },
         {
           "Name": "sub",
@@ -117,7 +117,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "DM"
+          "Value": "MID"
         },
         {
           "Name": "sub",
@@ -143,7 +143,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "LW"
+          "Value": "ATT"
         },
         {
           "Name": "sub",
@@ -169,7 +169,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "RW"
+          "Value": "ATT"
         },
         {
           "Name": "sub",
@@ -195,7 +195,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "RB"
+          "Value": "DEF"
         },
         {
           "Name": "sub",
@@ -221,7 +221,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "CB"
+          "Value": "DEF"
         },
         {
           "Name": "sub",
@@ -247,7 +247,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "CM"
+          "Value": "MID"
         },
         {
           "Name": "sub",
@@ -273,7 +273,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "LB"
+          "Value": "DEF"
         },
         {
           "Name": "sub",
@@ -299,7 +299,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "LM"
+          "Value": "MID"
         },
         {
           "Name": "sub",
@@ -325,7 +325,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "CF"
+          "Value": "ATT"
         },
         {
           "Name": "sub",
@@ -351,7 +351,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "CF"
+          "Value": "ATT"
         },
         {
           "Name": "sub",
@@ -377,7 +377,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "LM"
+          "Value": "MID"
         },
         {
           "Name": "sub",
@@ -403,7 +403,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "LB"
+          "Value": "DEF"
         },
         {
           "Name": "sub",
@@ -429,7 +429,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "GK"
+          "Value": "GOALKEEPER"
         },
         {
           "Name": "sub",
@@ -455,7 +455,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "RB"
+          "Value": "DEF"
         },
         {
           "Name": "sub",
@@ -481,7 +481,7 @@
         },
         {
           "Name": "custom:position",
-          "Value": "LB"
+          "Value": "DEF"
         },
         {
           "Name": "sub",
