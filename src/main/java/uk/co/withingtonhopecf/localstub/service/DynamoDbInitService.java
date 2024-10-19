@@ -97,8 +97,10 @@ public class DynamoDbInitService {
 		for (int i = 0; i < 2; i++) {
 			for (int j = 1; j <= 5; j++) {
 				matches.add(
-					createMatch(j, i == 1)
+					createMatch(j, i == 1, "24/25")
 				);
+
+				matches.add(createMatch(j, i == 1, "23/24"));
 
 				if(i != 1) {
 					matches.add(createTraining(j));
@@ -111,12 +113,14 @@ public class DynamoDbInitService {
 		return matches;
 	}
 
-	private static Match createMatch(int seed, boolean played) {
+	private static Match createMatch(int seed, boolean played, String season) {
 		final ZonedDateTime baseZonedDateTime = ZonedDateTime.now()
 			.withHour(10)
 			.withMinute(15)
 			.withSecond(0)
-			.with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
+			.with(TemporalAdjusters.next(DayOfWeek.SATURDAY))
+			.withYear(season.equals("23/24") ? 2023 : 2024);
+
 		ZonedDateTime kickOffTime = played ?
 			baseZonedDateTime.minusWeeks(seed) :
 			baseZonedDateTime.plusWeeks(seed);
