@@ -32,6 +32,7 @@ import software.amazon.awssdk.services.dynamodb.model.DescribeTableResponse;
 import software.amazon.awssdk.services.dynamodb.model.ResourceInUseException;
 import software.amazon.awssdk.services.dynamodb.waiters.DynamoDbWaiter;
 import uk.co.withingtonhopecf.localstub.model.Availability;
+import uk.co.withingtonhopecf.localstub.model.ConfigProperty;
 import uk.co.withingtonhopecf.localstub.model.Match;
 import uk.co.withingtonhopecf.localstub.model.enums.AvailabilityStatus;
 
@@ -64,7 +65,44 @@ public class DynamoDbInitService {
 
 	@PostConstruct
 	public void postConstruct() {
+		initConfig();
 		initMatches();
+	}
+
+	public void initConfig() {
+		log.info("Initialising config table");
+
+		DynamoDbTable<ConfigProperty> table = dynamoDbEnhancedClient.table("config", TableSchema.fromImmutableClass(ConfigProperty.class));
+
+		try {
+			table.createTable();
+		} catch (ResourceInUseException ex) {
+			log.info("Config table already exists, resetting data anyway...");
+		}
+
+		try (DynamoDbWaiter waiter = DynamoDbWaiter.builder().client(dynamoDbClient).build()) {
+			ResponseOrException<DescribeTableResponse> response = waiter
+				.waitUntilTableExists(builder -> builder.tableName("config").build())
+				.matched();
+
+			DescribeTableResponse tableDescription = response.response().orElseThrow(
+				() -> new RuntimeException("config table was not created."));
+
+			log.info("config table was created: {}", tableDescription);
+
+			createConfig().forEach(table::putItem);
+		}
+	}
+
+	private List<ConfigProperty> createConfig() {
+		ConfigProperty tweetConfig = ConfigProperty.builder().id("tweet").value("1847602681835073880").build();
+
+		ConfigProperty carouselConfig = ConfigProperty.builder()
+			.id("carousel")
+			.value("{\"0\":{\"description\":\"Zico, Jord, and Tom playing against AFC Stockport\",\"url\":\"zicoJordTom.jpg\"},\"1\":{\"description\":\"DC, Jord, and Danny playing against AFC Stockport\",\"url\":\"dcDanny.jpg\"},\"2\":{\"description\":\"Sam playing against AFC Stockport\",\"url\":\"samMccall.jpg\"}}")
+			.build();
+
+		return List.of(tweetConfig, carouselConfig);
 	}
 
 	public void initMatches() {
@@ -100,7 +138,7 @@ public class DynamoDbInitService {
 					createMatch(j, i == 1, "24/25")
 				);
 
-				matches.add(createMatch(j, i == 1, "23/24"));
+				matches.add(createMatch(j * 10, i == 1, "23/24"));
 
 				if(i != 1) {
 					matches.add(createTraining(j));
@@ -155,6 +193,7 @@ public class DynamoDbInitService {
 			.pitchType(isHomeGame ? GRASS : ASTRO)
 			.playerAvailability(createPlayerAvailability(seed))
 			.eventType("GAME")
+			.season(season)
 			.build();
 	}
 
@@ -235,6 +274,7 @@ public class DynamoDbInitService {
 			.pitchType(GRASS)
 			.playerAvailability(createPlayerAvailability(2))
 			.eventType("GAME")
+			.season("24/25")
 			.build();
 	}
 
